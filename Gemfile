@@ -60,3 +60,6 @@ gem "carrierwave"
 
 # enable kaminari
 gem "kaminari"
+
+# install Devise
+gem "devise"

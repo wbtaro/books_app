@@ -7,7 +7,9 @@ en:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
     models:
-      books: books
+      book:
+        one: Book
+        other: Books
     attributes:
       book:
         title: Title
@@ -16,9 +18,9 @@ en:
         picture: Picture
   operations:
     show: Show
-    edit: Edit
+    edit: "Edit %{resource}"
     destroy: Destroy
-    new: New Book
+    new: New %{resource}
     back: Back
   date:
     abbr_day_names:
