@@ -57,3 +57,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Enable to post picture
 gem "carrierwave"
+
+# enable kaminari
+gem "kaminari"
