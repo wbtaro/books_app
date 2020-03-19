@@ -2,6 +2,8 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
     def set_locale
@@ -20,5 +22,19 @@ class ApplicationController < ActionController::Base
 
     def extract_locale_from_accept_language
       request.env["HTTP_ACCEPT_LANGUAGE"].scan(/^[a-z]{2}/).first
+    end
+
+  protected
+    def update_resource(resource, params)
+      if params[:password].present? && params[:password_confirmation].present?
+        resource.update_attributes(params)
+      else
+        resource.update_without_password(params)
+      end
+    end
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :postal_code, :address, :description])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :postal_code, :address, :description])
     end
 end
