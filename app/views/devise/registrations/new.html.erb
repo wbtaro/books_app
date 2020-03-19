@@ -1,0 +1,5 @@
+<h2><%= t("devise.registrations.new.sign_up") %></h2>
+
+<%= render partial: "form", user: @user, locals: {method: "POST", edit: false, action: t("devise.registrations.new.sign_up")} %>
+
+<%= render "devise/shared/links" %>

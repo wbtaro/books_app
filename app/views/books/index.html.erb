@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Books</h1>
+<h1><%= t("activerecord.models.book.other") %></h1>
 
 <table>
   <thead>
@@ -21,7 +19,7 @@
         <td><%= book.author %></td>
         <td><%= book.picture %></td>
         <td><%= link_to t("operations.show"), book %></td>
-        <td><%= link_to t("operations.edit"), edit_book_path(book) %></td>
+        <td><%= link_to t("operations.edit", resource: ""), edit_book_path(book) %></td>
         <td><%= link_to t("operations.destroy"), book, method: :delete, data: { confirm: t("warnings.delete") } %></td>
       </tr>
     <% end %>
@@ -30,4 +28,4 @@
 <%= paginate @books %>
 <br>
 
-<%= link_to t("operations.new"),new_book_path %>
+<%= link_to t("operations.new", resource: ""),new_book_path %>
