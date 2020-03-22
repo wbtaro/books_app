@@ -61,3 +61,7 @@ gem "carrierwave"
 gem "kaminari"
 
 gem "devise"
+
+# Enable omniauth
+gem "omniauth"
+gem "omniauth-github"
