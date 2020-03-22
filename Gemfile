@@ -63,3 +63,7 @@ gem "kaminari"
 
 # install Devise
 gem "devise"
+
+# Enable omniauth
+gem "omniauth"
+gem "omniauth-github"
