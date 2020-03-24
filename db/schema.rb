@@ -55,8 +55,6 @@ ActiveRecord::Schema.define(version: 2020_03_23_234532) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-<<<<<<< HEAD
     t.string "provider", default: "", null: false
     t.string "uid", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -65,14 +63,8 @@ ActiveRecord::Schema.define(version: 2020_03_23_234532) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-=======
-=======
-    t.string "provider", default: "", null: false
-    t.string "uid", default: "", null: false
->>>>>>> Fix: Install omniauth for GitHub
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
->>>>>>> Fix: Install devise and add user profile pages
 end
