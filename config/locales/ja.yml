@@ -7,7 +7,9 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     models:
-      books: 本
+      book:
+        one: 本情報
+        other: 本情報一覧
     attributes:
       book:
         title: タイトル
@@ -16,9 +18,9 @@ ja:
         picture: 画像
   operations:
     show: 詳細
-    edit: 編集
+    edit: "%{resource}編集"
     destroy: 削除
-    new: 新規作成
+    new: "%{resource}新規作成"
     back: 戻る
   date:
     abbr_day_names:
