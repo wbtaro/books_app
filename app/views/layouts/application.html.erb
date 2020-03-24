@@ -32,7 +32,8 @@
   <p>
     <% if user_signed_in? %>
       <%= link_to t("activerecord.models.book.other"), books_path %> | 
-      <%= link_to t("activerecord.models.user.other"), users_path %>
+      <%= link_to t("activerecord.models.user.other"), users_path %> | 
+      <%= link_to "フォローリスト", follows_path %>
     <% end %>
   </p>
   <%= yield %>
