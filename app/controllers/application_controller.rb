@@ -24,6 +24,11 @@ class ApplicationController < ActionController::Base
       request.env["HTTP_ACCEPT_LANGUAGE"].scan(/^[a-z]{2}/).first
     end
 
+    # ログインユーザー以外のユーザーによる削除を防ぐ
+    def confirm_user(owner_id)
+      owner_id == current_user.id ? true : false
+    end
+
   protected
     def update_resource(resource, params)
       if params[:password].present? && params[:password_confirmation].present?

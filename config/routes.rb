@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   scope "(/:locale)" do
     resources :books
     resources :users, only: [:index, :show]
+    resources :follows, only: [:index, :destroy, :create]
   end
   root "books#index"
 end

@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = Book.page params[:page]
+    @books = Book.where(user_id: current_user.id).page params[:page]
   end
 
   # GET /books/1
@@ -24,6 +24,7 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
 
     if @book.save
       redirect_to @book, notice: I18n.t("results.create")
@@ -34,6 +35,11 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1
   def update
+    if !confirm_user(@book.user_id)
+      redirect_to @book, notice: "無効な操作です"
+      return
+    end
+
     if @book.update(book_params)
       redirect_to @book, notice: I18n.t("results.update")
     else
@@ -43,6 +49,11 @@ class BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
+    if !confirm_user(@book.user_id)
+      redirect_to @book, notice: "無効な操作です"
+      return
+    end
+
     @book.destroy
     redirect_to books_url, notice: I18n.t("results.destroy")
   end

@@ -31,4 +31,9 @@
   <%= @user.description %>
 </p>
 
+<%= form_with model: @follow, local: true, url: follows_path do |f| %>
+  <%= f.hidden_field :followee_id %>
+  <%= f.submit "フォローする" %>
+<% end %>
+
 <%= link_to t("operations.back"), users_path %>
