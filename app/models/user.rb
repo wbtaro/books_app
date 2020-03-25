@@ -9,7 +9,9 @@ class User < ApplicationRecord
   paginates_per 5
   has_one_attached :avatar
   has_many :followings, foreign_key: :follower_id, class_name: "Follow"
-  has_many :followees, through: :followings, class_name: "User", source: :followee
+  has_many :followees, through: :followings, class_name: "User"
+  has_many :followed, foreign_key: :followee_id, class_name: "Follow"
+  has_many :followers, through: :followed, class_name: "User"
   has_many :books
 
   def update_with_password(params, *options)

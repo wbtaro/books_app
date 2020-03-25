@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
     # ログインユーザー以外のユーザーによる削除を防ぐ
     def confirm_user(owner_id)
-      owner_id == current_user.id ? true : false
+      owner_id == current_user.id
     end
 
   protected

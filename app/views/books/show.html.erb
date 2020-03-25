@@ -18,5 +18,7 @@
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
-<%= link_to t("operations.edit", resource: ""), edit_book_path(@book) %> |
+<%- if current_user.id == @book.user_id %>
+  <%= link_to t("operations.edit", resource: ""), edit_book_path(@book) %> |
+<% end %>
 <%= link_to t("operations.back"), books_path %>

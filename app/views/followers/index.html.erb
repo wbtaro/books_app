@@ -1,0 +1,3 @@
+<h1><%= t("activerecord.models.follower.other") %></h1>
+
+<%= render(partial: "shared/user_list", locals: { users: @followers, follows: @follows, show_follow: true, show_cancel_follow: false}) %>
