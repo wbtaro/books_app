@@ -3,14 +3,13 @@
 class FollowsController < ApplicationController
   def  index
     @followees = current_user.followees.page params[:page]
-    follows = current_user.followings
-    @follow_list = {}
-    @followees.each do |followee| 
-      follows.each do |follow|
-        @follow_list[followee.id] = follow.id if followee.id == follow.followee_id
+    followings = current_user.followings
+    @follows = {}
+    @followees.each do |followee|
+      followings.each do |follow|
+        @follows[followee.id] = Follow.new(id: follow.id) if followee.id == follow.followee_id
       end
     end
-    p @follow_list
   end
 
   def destroy
@@ -18,12 +17,12 @@ class FollowsController < ApplicationController
 
     # 本人以外のユーザーフォローを削除するのを防ぐ
     if !confirm_user(@follow.follower_id)
-      redirect_to follows_path, notice: "無効な操作です"
+      redirect_to follows_path, notice: I18n.t("warnings.invalid_operation")
       return
     end
-    
+
     @follow.destroy
-    redirect_to follows_path, notice: "フォローをやめました"
+    redirect_to follows_path, notice: I18n.t("results.follows.destroy")
   end
 
   def create
@@ -31,14 +30,13 @@ class FollowsController < ApplicationController
     @follow.follower_id = current_user.id
 
     if @follow.save
-      redirect_to follows_path, notice: "フォローしました"
+      redirect_to follows_path, notice: I18n.t("results.follows.create")
     else
-      redirect_to follows_path, notice: "すでにフォローしています"
+      redirect_to follows_path, notice: I18n.t("results.follows.already_follow")
     end
   end
 
   private
-  
     def follow_params
       params.require(:follow).permit(:followee_id)
     end

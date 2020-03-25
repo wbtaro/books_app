@@ -36,7 +36,7 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   def update
     if !confirm_user(@book.user_id)
-      redirect_to @book, notice: "無効な操作です"
+      redirect_to @book, notice: I18n.t("warnings.invalid_operation")
       return
     end
 
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
   # DELETE /books/1
   def destroy
     if !confirm_user(@book.user_id)
-      redirect_to @book, notice: "無効な操作です"
+      redirect_to @book, notice: I18n.t("warnings.invalid_operation")
       return
     end
 

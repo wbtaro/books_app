@@ -10,6 +10,13 @@ en:
       book:
         one: Book
         other: Books
+        owned_books: "%{owner}'s Books"
+      follow:
+        one: Follow
+        other: Follows
+      follower:
+        one: Follower
+        other: Followers
     attributes:
       book:
         title: Title
@@ -22,6 +29,8 @@ en:
     destroy: Destroy
     new: New %{resource}
     back: Back
+    follow: Follow
+    cancel_follow: Cancell Follow
   date:
     abbr_day_names:
     - Sun
@@ -123,10 +132,16 @@ en:
       year: Year
   warnings:
     delete: Are you sure?
+    invalid_operation: Invalid oerations
   results:
-    create: Book is successfully created
-    destroy: Book is successfully destroyed
-    update: Book is successfully updated
+    books:
+      create: Book is successfully created
+      destroy: Book is successfully destroyed
+      update: Book is successfully updated
+    follows:
+      create: You uccessfully followed
+      destroy: You canceled follow
+      already_follow: You already followed
   errors:
     format: "%{attribute} %{message}"
     messages:
