@@ -14,8 +14,8 @@
     <% @users.each do |user| %>
       <tr>
         <td>
-          <% if user.avator.present? %>
-            <%= image_tag url_for(user.avator), width: "50" %>
+          <% if user.avatar.present? %>
+            <%= image_tag url_for(user.avatar), width: "50" %>
           <% end %>
         </td>
         <td><%= user.name %></td>

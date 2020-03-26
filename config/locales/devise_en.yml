@@ -2,7 +2,7 @@ en:
   activerecord:
     attributes:
       user:
-        avator: Avator
+        avator: Avatar
         confirmation_sent_at: Confirmation sent at
         confirmation_token: Confirmation token
         confirmed_at: Confirmed at
