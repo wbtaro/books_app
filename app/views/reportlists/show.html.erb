@@ -1,0 +1,5 @@
+<h1><%= t("activerecord.models.report.owned_reports", owner: @user.name) %></h1>
+
+<%= render partial: "shared/report_list" %>
+
+<%= link_to t("operations.back"), users_path %>

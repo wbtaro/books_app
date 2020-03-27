@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :followed, foreign_key: :followee_id, class_name: "Follow"
   has_many :followers, through: :followed, class_name: "User"
   has_many :books
+  has_many :reports
 
   def update_with_password(params, *options)
     params.delete(:current_password)

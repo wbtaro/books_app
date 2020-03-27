@@ -12,7 +12,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_002741) do
+ActiveRecord::Schema.define(version: 2020_03_27_000037) do
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -55,6 +56,16 @@ ActiveRecord::Schema.define(version: 2020_03_25_002741) do
     t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.string "title", null: false
+    t.date "date", null: false
+    t.text "text"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -78,4 +89,5 @@ ActiveRecord::Schema.define(version: 2020_03_25_002741) do
   add_foreign_key "books", "users"
   add_foreign_key "follows", "users", column: "followee_id"
   add_foreign_key "follows", "users", column: "follower_id"
+  add_foreign_key "reports", "users"
 end

@@ -18,6 +18,10 @@ ja:
       follower:
         one: フォロワー
         other: フォロワーリスト
+      report:
+        one: 日報
+        other: 日報
+        owned_reports: "%{owner}さんの日報"
     attributes:
       book:
         title: タイトル
@@ -25,6 +29,10 @@ ja:
         author: 著者
         picture: 画像
         contributor: 投稿者
+      report:
+        title: タイトル
+        date: 日付
+        text: 本文
   operations:
     show: 詳細
     edit: "%{resource}編集"
@@ -136,10 +144,10 @@ ja:
     delete: 本当に削除しますか？
     invalid_operation: 無効な操作です
   results:
-    books:
-      create: 本を作成しました
-      destroy: 本を削除しました
-      update: 本を変更しました
+    common:
+      create: "%{resource}を作成しました"
+      destroy: "%{resource}を削除しました"
+      update: "%{resource}を更新しました"
     follows:
       create: フォローしました
       destroy: フォローをやめました

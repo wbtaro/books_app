@@ -27,7 +27,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
 
     if @book.save
-      redirect_to @book, notice: I18n.t("results.books.create")
+      redirect_to @book, notice: I18n.t("results.common.create", resource: I18n.t("activerecord.models.book.one"))
     else
       render :new
     end
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
     end
 
     if @book.update(book_params)
-      redirect_to @book, notice: I18n.t("results.books.update")
+      redirect_to @book, notice: I18n.t("results.common.update", resource: I18n.t("activerecord.models.book.one"))
     else
       render :edit
     end
@@ -55,7 +55,7 @@ class BooksController < ApplicationController
     end
 
     @book.destroy
-    redirect_to books_url, notice: I18n.t("results.books.destroy")
+    redirect_to books_url, notice: I18n.t("results.common.destroy", resource: I18n.t("activerecord.models.book.one"))
   end
 
   private
