@@ -12,6 +12,9 @@
   <body>
   <p>
     <% if user_signed_in? %>
+      <% if current_user.avatar.present? %>
+        <%= image_tag url_for(current_user.avatar), width: "40" %>
+      <% end %>
       <%= t("devise.sessions.current_user", user: current_user.email) %>
       <%= link_to t("devise.registrations.edit.edit_profile"), edit_user_registration_path %> |
       <%= link_to t("devise.sessions.destroy.logout"), destroy_user_session_path, method: :delete %>

@@ -4,6 +4,14 @@
 </p>
 
 <p>
+  <strong><%= t("activerecord.attributes.user.avatar") %>:</strong>
+  <br>
+  <%- if @user.avatar.present? %>
+    <%= image_tag url_for(@user.avatar), width: "100" %>
+  <% end %>
+</p>
+
+<p>
   <strong><%= t("activerecord.attributes.user.email") %>:</strong>
   <%= @user.email %>
 </p>

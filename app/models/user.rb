@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i(github)
   paginates_per 5
+  has_one_attached :avatar
 
   def update_with_password(params, *options)
     params.delete(:current_password)
