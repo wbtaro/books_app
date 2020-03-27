@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
@@ -8,6 +10,8 @@ class ReportsController < ApplicationController
 
   # GET /reports/1
   def show
+    @owner = @report.user
+    set_comments_and_new_comment(@report)
   end
 
   # GET /reports/new
@@ -34,8 +38,8 @@ class ReportsController < ApplicationController
 
   # PATCH/PUT /reports/1
   def update
-    if !confirm_user(@report.user_id)
-      redirect_to @book, notice: I18n.t("warnings.invalid_operation")
+    if !current_user_is_owner(@report.user_id)
+      redirect_to @report, notice: I18n.t("warnings.invalid_operation")
       return
     end
 
@@ -48,8 +52,8 @@ class ReportsController < ApplicationController
 
   # DELETE /reports/1
   def destroy
-    if !confirm_user(@report.user_id)
-      redirect_to @book, notice: I18n.t("warnings.invalid_operation")
+    if !current_user_is_owner(@report.user_id)
+      redirect_to @report, notice: I18n.t("warnings.invalid_operation")
       return
     end
 

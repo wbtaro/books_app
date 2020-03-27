@@ -40,6 +40,21 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def set_comments_and_new_comment(commentable_resource)
+      @posted_comments = commentable_resource.comments
+      temp_commenters = User.includes(:comments).where(comments: { commentable_id: commentable_resource.id })
+      @commenters = {}
+      @posted_comments.each do |comment|
+        temp_commenters.each do |commenter|
+          if comment.user_id == commenter.id
+            @commenters[comment.id] = commenter.name
+          end
+        end
+      end
+      @posted_comments = @posted_comments.sort { |a, b| a.updated_at <=> b.updated_at }
+      @comment = Comment.new(commentable_id: commentable_resource.id, commentable_type: commentable_resource.class, user_id: current_user.id)
+    end
+
   protected
     def update_resource(resource, params)
       if params[:password].present? && params[:password_confirmation].present?

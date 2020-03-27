@@ -22,6 +22,10 @@ en:
         one: Daily report
         other: Daily reports
         owned_reports: "%{owner}'s Reports"
+        followee_reports: "Followees' Reports"
+      comment:
+        one: Comment
+        other: Comments
     attributes:
       book:
         title: Title
@@ -33,6 +37,10 @@ en:
         title: Title
         date: Date
         text: Text
+      comment:
+        commenter: "Commenter: %{commenter}"
+        date: "Date: %{date}"
+        text: Text
   operations:
     show: Show
     edit: "Edit %{resource}"
@@ -41,6 +49,7 @@ en:
     back: Back
     follow: Follow
     cancel_follow: Cancell Follow
+    post: Post
   date:
     abbr_day_names:
     - Sun

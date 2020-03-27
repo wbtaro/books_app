@@ -32,11 +32,12 @@
   <p>
     <% if user_signed_in? %>
       <%= link_to t("activerecord.models.book.other"), books_path %> | 
+      <%= link_to t("activerecord.models.report.other"), reports_path %> | 
       <%= link_to t("activerecord.models.book.followee_books"), booklists_path %> | 
+      <%= link_to t("activerecord.models.report.followee_reports"), reportlists_path %> | 
       <%= link_to t("activerecord.models.user.other"), users_path %> | 
       <%= link_to t("activerecord.models.follow.other"), follows_path %> |
-      <%= link_to t("activerecord.models.follower.other"), followers_path %> | 
-      <%= link_to t("activerecord.models.report.other"), reports_path %>
+      <%= link_to t("activerecord.models.follower.other"), followers_path %>
     <% end %>
   </p>
   <%= yield %>

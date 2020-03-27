@@ -1,0 +1,5 @@
+<h1><%= t("operations.edit", resource: t("activerecord.models.comment.one")) %></h1>
+
+<%= render "form", comment: @comment %>
+
+<%= link_to t("operations.back"), book_path(@comment.commentable_id) %>

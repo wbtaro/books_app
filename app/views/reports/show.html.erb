@@ -1,6 +1,11 @@
 <h1><%= t("activerecord.models.report.one") %></h1>
 
 <p>
+  <strong><%= t("activerecord.attributes.report.contributor") %>:</strong>
+  <%= @owner.name %>
+</p>
+
+<p>
   <strong><%= t("activerecord.attributes.report.title") %>:</strong>
   <%= @report.title %>
 </p>
@@ -15,5 +20,10 @@
   <%= simple_format @report.text %>
 </p>
 
-<%= link_to t("operations.edit", resource: ""), edit_report_path(@report) %> |
-<%= link_to t("operations.back"), reports_path %>
+<%- if @report.user_id == current_user.id %>
+  <%= link_to t("operations.edit", resource: ""), edit_report_path(@report) %>
+<% end %>
+
+<br>
+
+<%= render "shared/comments" %>

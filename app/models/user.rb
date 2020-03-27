@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :followers, through: :followed, class_name: "User"
   has_many :books
   has_many :reports
+  has_many :comments
 
   def update_with_password(params, *options)
     params.delete(:current_password)

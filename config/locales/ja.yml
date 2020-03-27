@@ -22,6 +22,10 @@ ja:
         one: 日報
         other: 日報
         owned_reports: "%{owner}さんの日報"
+        followee_reports: "フォロー中のユーザーの日報"
+      comment:
+        one: コメント
+        other: コメント
     attributes:
       book:
         title: タイトル
@@ -33,6 +37,11 @@ ja:
         title: タイトル
         date: 日付
         text: 本文
+        contributor: 投稿者
+      comment:
+        commenter: "コメント者: %{commenter}"
+        date: "日時: %{date}"
+        text: 本文
   operations:
     show: 詳細
     edit: "%{resource}編集"
@@ -41,6 +50,7 @@ ja:
     back: 戻る
     follow: フォローする
     cancel_follow: フォローをやめる
+    post: 投稿する
   date:
     abbr_day_names:
     - 日

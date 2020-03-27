@@ -41,5 +41,6 @@
 <% end %>
 
 <%= link_to t("activerecord.models.book.owned_books", owner: @user.name), booklist_path(@user) %> <br>
+<%= link_to t("activerecord.models.report.owned_reports", owner: @user.name), reportlist_path(@user) %> <br>
 
 <%= link_to t("operations.back"), users_path %>

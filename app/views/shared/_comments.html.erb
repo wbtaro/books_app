@@ -1,0 +1,15 @@
+<h2><%= t("activerecord.models.comment.other") %></h2>
+
+<% @posted_comments.each do |comment| %>
+  <p>-------------------------------</p>
+  <p><%= t("activerecord.attributes.comment.commenter", commenter: @commenters[comment.id]) %></p>
+  <p><%= t("activerecord.attributes.comment.date", date: comment.updated_at) %></p>
+  <p><%= simple_format comment.text %></p>
+  <%- if comment.user_id == current_user.id %>
+    <%= link_to t("operations.edit", resource: ""), edit_comment_path(comment) %> | 
+    <%= link_to t("operations.destroy"), comment, method: :delete, data: { confirm: t("warnings.delete") } %> 
+  <% end %>
+<% end %>
+<br>
+<br>
+<%= render "comments/form" %>

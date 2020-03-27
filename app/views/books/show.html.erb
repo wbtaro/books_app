@@ -1,3 +1,10 @@
+<h1><%= t("activerecord.models.book.one") %></h1>
+
+<p>
+  <strong><%= t("activerecord.attributes.book.contributor") %>:</strong>
+  <%= @owner.name %>
+</p>
+
 <p>
   <strong><%= t("activerecord.attributes.book.title") %>:</strong>
   <%= @book.title %>
@@ -21,4 +28,5 @@
 <%- if current_user.id == @book.user_id %>
   <%= link_to t("operations.edit", resource: ""), edit_book_path(@book) %> |
 <% end %>
-<%= link_to t("operations.back"), books_path %>
+<br>
+<%= render "shared/comments" %>
