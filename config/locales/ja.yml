@@ -11,6 +11,7 @@ ja:
         one: 本情報
         other: 本情報一覧
         owned_books: "%{owner}さんの本情報一覧"
+        followee_books: "フォロー中のユーザーの本"
       follow:
         one: フォロー
         other: フォローリスト
@@ -23,6 +24,7 @@ ja:
         memo: メモ
         author: 著者
         picture: 画像
+        contributor: 投稿者
   operations:
     show: 詳細
     edit: "%{resource}編集"

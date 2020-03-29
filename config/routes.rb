@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :books
     resources :users, only: [:index, :show]
     resources :follows, only: [:index, :destroy, :create]
-    resources :booklists, only: [:show]
+    resources :booklists, only: [:index, :show]
     resources :followers, only: [:index]
   end
   root "books#index"

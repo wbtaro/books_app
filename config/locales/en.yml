@@ -11,6 +11,7 @@ en:
         one: Book
         other: Books
         owned_books: "%{owner}'s Books"
+        followee_books: "Followees' Books"
       follow:
         one: Follow
         other: Follows
@@ -23,6 +24,7 @@ en:
         memo: Memo
         author: Author
         picture: Picture
+        contributor: Contributor
   operations:
     show: Show
     edit: "Edit %{resource}"
