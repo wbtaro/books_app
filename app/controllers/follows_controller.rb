@@ -16,7 +16,7 @@ class FollowsController < ApplicationController
     @follow = Follow.find(params[:id])
 
     # 本人以外のユーザーフォローを削除するのを防ぐ
-    if !confirm_user(@follow.follower_id)
+    if !current_user_is_ownwer(@follow.follower_id)
       redirect_to follows_path, notice: I18n.t("warnings.invalid_operation")
       return
     end

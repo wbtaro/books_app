@@ -27,7 +27,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
 
     if @book.save
-      redirect_to @book, notice: I18n.t("results.create")
+      redirect_to @book, notice: I18n.t("results.books.create")
     else
       render :new
     end
@@ -35,13 +35,13 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1
   def update
-    if !confirm_user(@book.user_id)
+    if !current_user_is_ownwer(@book.user_id)
       redirect_to @book, notice: I18n.t("warnings.invalid_operation")
       return
     end
 
     if @book.update(book_params)
-      redirect_to @book, notice: I18n.t("results.update")
+      redirect_to @book, notice: I18n.t("results.books.update")
     else
       render :edit
     end
@@ -49,13 +49,13 @@ class BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
-    if !confirm_user(@book.user_id)
+    if !current_user_is_ownwer(@book.user_id)
       redirect_to @book, notice: I18n.t("warnings.invalid_operation")
       return
     end
 
     @book.destroy
-    redirect_to books_url, notice: I18n.t("results.destroy")
+    redirect_to books_url, notice: I18n.t("results.books.destroy")
   end
 
   private
