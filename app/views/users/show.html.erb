@@ -31,9 +31,13 @@
   <%= @user.description %>
 </p>
 
-<%= form_with model: @follow, local: true, url: follows_path do |f| %>
-  <%= f.hidden_field :followee_id %>
-  <%= f.submit t("operations.follow") %>
+<%- if @follow.present? %>
+  <%= link_to t("operations.cancel_follow"), follow_path(@follow), method: :delete %><br>
+<%- else %>
+  <%= form_with model: @new_follow, local: true, url: follows_path do |f| %>
+    <%= f.hidden_field :followee_id %>
+    <%= f.submit t("operations.follow") %>
+  <% end %>
 <% end %>
 
 <%= link_to t("activerecord.models.book.owned_books", owner: @user.name), booklist_path(@user) %> <br>

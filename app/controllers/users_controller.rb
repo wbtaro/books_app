@@ -13,7 +13,8 @@ class UsersController < ApplicationController
 
   # Get /users/id
   def show
-    @follow = Follow.new(followee_id: @user.id)
+    @new_follow = Follow.new(followee_id: @user.id)
+    @follow = current_user.followings.find_by(followee_id: @user.id)
   end
 
   private

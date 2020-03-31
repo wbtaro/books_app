@@ -35,7 +35,7 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1
   def update
-    if !current_user_is_ownwer(@book.user_id)
+    if !current_user_is_owner(@book.user_id)
       redirect_to @book, notice: I18n.t("warnings.invalid_operation")
       return
     end
@@ -49,7 +49,7 @@ class BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
-    if !current_user_is_ownwer(@book.user_id)
+    if !current_user_is_owner(@book.user_id)
       redirect_to @book, notice: I18n.t("warnings.invalid_operation")
       return
     end

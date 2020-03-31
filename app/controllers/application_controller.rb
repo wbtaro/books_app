@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     # ログインユーザー以外のユーザーによる削除を防ぐ
-    def current_user_is_ownwer(owner_id)
+    def current_user_is_owner(owner_id)
       owner_id == current_user.id
     end
 
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
       @follows = {}
       users.each do |user|
         followings.each do |follow|
-          @follows[user.id] = Follow.new(id: follow.id) if user.id == follow.followee_id
+          @follows[user.id] = follow.id if user.id == follow.followee_id
         end
       end
     end
