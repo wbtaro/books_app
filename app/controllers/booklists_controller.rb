@@ -3,14 +3,11 @@
 class BooklistsController < ApplicationController
   def index
     followees = current_user.followees
-    @books = []
+    @books = Book.where(user_id: followees).order(updated_at: :DESC).page params[:page]
     @users = {}
     followees.each do |followee|
-      followee_books = Book.where(user_id: followee.id)
-      followee_books.each { |book| @users[book.id] = followee }
-      @books += followee_books
+      @books.each { |book| @users[book.id] = followee if followee.id == book.user_id }
     end
-    @books.sort_by! { |book| book.updated_at }
   end
 
   def show

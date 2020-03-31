@@ -3,13 +3,7 @@
 class FollowsController < ApplicationController
   def  index
     @followees = current_user.followees.page params[:page]
-    followings = current_user.followings
-    @follows = {}
-    @followees.each do |followee|
-      followings.each do |follow|
-        @follows[followee.id] = Follow.new(id: follow.id) if followee.id == follow.followee_id
-      end
-    end
+    set_follows(@followees)
   end
 
   def destroy

@@ -16,14 +16,13 @@
         <td><%= link_to t("operations.show"), user_path(user) %></td>
         <td><%= link_to t("activerecord.models.book.other"), booklist_path(user) %><td>
         <td>
-        <%- if show_follow %>
-          <%= form_with model: follows[user.id], local: true, url: follows_path do |f| %>
+        <%- if @follows[user.id] %>
+          <%= link_to t("operations.cancel_follow"), follow_path(@follows[user.id]), method: :delete %>
+        <%- else %>
+          <%= form_with model: @new_follows[user.id], local: true, url: follows_path do |f| %>
             <%= f.hidden_field :followee_id %>
             <%= f.submit t("operations.follow") %>
           <% end %>
-        <% end %>
-        <%- if show_cancel_follow %>
-          <%= link_to t("operations.cancel_follow"), follow_path(follows[user.id]), method: :delete %>
         <% end %>
         </td>
       </tr>

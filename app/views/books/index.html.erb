@@ -1,6 +1,5 @@
 <h1><%= t("activerecord.models.book.other") %></h1>
 
 <%= render partial: "shared/book_list", locals: { show_user: false} %>
-<%= paginate @books %>
 
 <%= link_to t("operations.new", resource: ""), new_book_path %>

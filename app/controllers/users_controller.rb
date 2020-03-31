@@ -6,8 +6,9 @@ class UsersController < ApplicationController
   # Get /users
   def index
     @users = User.page params[:page]
-    @follows = {}
-    @users.each { |user| @follows[user.id] = Follow.new(followee_id: user.id) }
+    @new_follows = {}
+    @users.each { |user| @new_follows[user.id] = Follow.new(followee_id: user.id) }
+    set_follows(@users)
   end
 
   # Get /users/id
