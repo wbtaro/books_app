@@ -24,6 +24,22 @@ class ApplicationController < ActionController::Base
       request.env["HTTP_ACCEPT_LANGUAGE"].scan(/^[a-z]{2}/).first
     end
 
+    # ログインユーザー以外のユーザーによる削除を防ぐ
+    def current_user_is_owner(owner_id)
+      owner_id == current_user.id
+    end
+
+    # usersのうち、自分がフォローしているユーザーのFollowをセットする
+    def set_follows(users)
+      followings = current_user.followings
+      @follows = {}
+      users.each do |user|
+        followings.each do |follow|
+          @follows[user.id] = follow.id if user.id == follow.followee_id
+        end
+      end
+    end
+
   protected
     def update_resource(resource, params)
       if params[:password].present? && params[:password_confirmation].present?

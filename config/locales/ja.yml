@@ -10,18 +10,29 @@ ja:
       book:
         one: 本情報
         other: 本情報一覧
+        owned_books: "%{owner}さんの本情報一覧"
+        followee_books: "フォロー中のユーザーの本"
+      follow:
+        one: フォロー
+        other: フォローリスト
+      follower:
+        one: フォロワー
+        other: フォロワーリスト
     attributes:
       book:
         title: タイトル
         memo: メモ
         author: 著者
         picture: 画像
+        contributor: 投稿者
   operations:
     show: 詳細
     edit: "%{resource}編集"
     destroy: 削除
     new: "%{resource}新規作成"
     back: 戻る
+    follow: フォローする
+    cancel_follow: フォローをやめる
   date:
     abbr_day_names:
     - 日
@@ -123,10 +134,16 @@ ja:
       year: 年
   warnings:
     delete: 本当に削除しますか？
+    invalid_operation: 無効な操作です
   results:
-    create: 本を作成しました
-    destroy: 本を削除しました
-    update: 本を変更しました
+    books:
+      create: 本を作成しました
+      destroy: 本を削除しました
+      update: 本を変更しました
+    follows:
+      create: フォローしました
+      destroy: フォローをやめました
+      already_follow: すでにフォローしています
   errors:
     format: "%{attribute}%{message}"
     messages:

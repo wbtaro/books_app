@@ -1,0 +1,3 @@
+<h1><%= t("activerecord.models.book.owned_books", owner: @user.name) %></h1>
+
+<%= render partial: "shared/book_list", locals: { show_user: false } %>
