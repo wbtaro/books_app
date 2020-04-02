@@ -11,7 +11,8 @@ class BooksController < ApplicationController
   # GET /books/1
   def show
     @owner = @book.user
-    set_comments_and_new_comment(@book)
+    set_posted_comments_and_commenters(@book)
+    set_new_comment(@book)
   end
 
   # GET /books/new

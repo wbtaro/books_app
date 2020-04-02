@@ -38,8 +38,8 @@ en:
         date: Date
         text: Text
       comment:
-        commenter: "Commenter: %{commenter}"
-        date: "Date: %{date}"
+        commenter: "Commenter"
+        date: "Date"
         text: Text
   operations:
     show: Show

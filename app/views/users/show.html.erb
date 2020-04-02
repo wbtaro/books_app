@@ -1,10 +1,10 @@
 <p>
-  <strong><%= t("activerecord.attributes.user.name") %>:</strong>
+  <strong><%= User.human_attribute_name(:name) %>:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.user.avatar") %>:</strong>
+  <strong><%= User.human_attribute_name(:avatar) %>:</strong>
   <br>
   <%- if @user.avatar.present? %>
     <%= image_tag url_for(@user.avatar), width: "100" %>
@@ -12,22 +12,22 @@
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.user.email") %>:</strong>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.user.postal_code") %>:</strong>
+  <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
   <%= @user.postal_code %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.user.address") %>:</strong>
+  <strong><%= User.human_attribute_name(:address) %>:</strong>
   <%= @user.address %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.user.description") %>:</strong>
+  <strong><%= User.human_attribute_name(:description) %>:</strong>
   <%= @user.description %>
 </p>
 

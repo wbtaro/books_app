@@ -40,18 +40,16 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def set_comments_and_new_comment(commentable_resource)
-      @posted_comments = commentable_resource.comments
+    def set_posted_comments_and_commenters(commentable_resource)
+      @posted_comments = commentable_resource.comments.order(:created_at)
       temp_commenters = User.includes(:comments).where(comments: { commentable_id: commentable_resource.id })
       @commenters = {}
       @posted_comments.each do |comment|
-        temp_commenters.each do |commenter|
-          if comment.user_id == commenter.id
-            @commenters[comment.id] = commenter.name
-          end
-        end
+        temp_commenters.each { |commenter| @commenters[comment.id] = commenter.name if comment.user_id == commenter.id }
       end
-      @posted_comments = @posted_comments.sort { |a, b| a.updated_at <=> b.updated_at }
+    end
+
+    def set_new_comment(commentable_resource)
       @comment = Comment.new(commentable_id: commentable_resource.id, commentable_type: commentable_resource.class, user_id: current_user.id)
     end
 

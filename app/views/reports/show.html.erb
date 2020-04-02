@@ -1,22 +1,22 @@
-<h1><%= t("activerecord.models.report.one") %></h1>
+<h1><%= Report.model_name.human %></h1>
 
 <p>
-  <strong><%= t("activerecord.attributes.report.contributor") %>:</strong>
+  <strong><%= Report.human_attribute_name(:contributor) %>:</strong>
   <%= @owner.name %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.report.title") %>:</strong>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
   <%= @report.title %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.report.date") %>:</strong>
+  <strong><%= Report.human_attribute_name(:date)  %>:</strong>
   <%= @report.date %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.report.text") %>:</strong><br>
+  <strong><%= Report.human_attribute_name(:text) %>:</strong><br>
   <%= simple_format @report.text %>
 </p>
 

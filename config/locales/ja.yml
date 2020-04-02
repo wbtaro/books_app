@@ -41,8 +41,8 @@ ja:
         text: 本文
         contributor: 投稿者
       comment:
-        commenter: "コメント者: %{commenter}"
-        date: "日時: %{date}"
+        commenter: "コメント者"
+        date: "日時"
         text: 本文
   operations:
     show: 詳細
