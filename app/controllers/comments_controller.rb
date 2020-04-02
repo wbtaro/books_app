@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to commented_resource, notice: I18n.t("results.common.create", resource: I18n.t("activerecord.models.comment.one"))
     else
-      render :new
+      redirect_to commented_resource
     end
   end
 
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
     if @comment.update(comment_params)
       redirect_to commented_resource, notice: I18n.t("results.common.update", resource: I18n.t("activerecord.models.comment.one"))
     else
-      render :edit
+      redirect_to commented_resource
     end
   end
 

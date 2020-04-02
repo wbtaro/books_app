@@ -31,8 +31,8 @@
   <% end %>
   <p>
     <% if user_signed_in? %>
-      <%= link_to t("activerecord.models.book.other"), books_path %> | 
-      <%= link_to t("activerecord.models.report.other"), reports_path %> | 
+      <%= link_to t("activerecord.models.book.my_books"), books_path %> | 
+      <%= link_to t("activerecord.models.report.my_reports"), reports_path %> | 
       <%= link_to t("activerecord.models.book.followee_books"), booklists_path %> | 
       <%= link_to t("activerecord.models.report.followee_reports"), reportlists_path %> | 
       <%= link_to t("activerecord.models.user.other"), users_path %> | 

@@ -12,6 +12,7 @@ ja:
         other: 本情報一覧
         owned_books: "%{owner}さんの本情報一覧"
         followee_books: "フォロー中のユーザーの本"
+        my_books: "あなたの本情報一覧"
       follow:
         one: フォロー
         other: フォローリスト
@@ -23,6 +24,7 @@ ja:
         other: 日報
         owned_reports: "%{owner}さんの日報"
         followee_reports: "フォロー中のユーザーの日報"
+        my_reports: "あなたの日報"
       comment:
         one: コメント
         other: コメント
