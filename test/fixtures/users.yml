@@ -1,0 +1,13 @@
+john:
+  email: john@example.com
+  encrypted_password: aaaaaa
+  name: John
+  postal_code: 111-1111
+  address: kyoto
+  description: Hello!!
+
+bob:
+  email: bob@example.com
+  name: Bob
+  provider: GitHub
+  uid: 12345
