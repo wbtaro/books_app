@@ -28,7 +28,7 @@ class ReportsController < ApplicationController
   # POST /reports
   def create
     @report = Report.new(report_params)
-    @report.user_id = current_user.id
+    @report.user = current_user
 
     if @report.save
       redirect_to @report, notice: I18n.t("results.common.create", resource: I18n.t("activerecord.models.report.one"))
