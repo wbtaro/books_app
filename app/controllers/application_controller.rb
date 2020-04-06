@@ -40,8 +40,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def set_posted_comments_and_commenters(commentable_resource)
+    def set_posted_comments(commentable_resource)
       @posted_comments = commentable_resource.comments.order(:created_at)
+    end
+
+    def set_commenters(commentable_resource)
       temp_commenters = User.includes(:comments).where(comments: { commentable_id: commentable_resource.id })
       @commenters = {}
       @posted_comments.each do |comment|

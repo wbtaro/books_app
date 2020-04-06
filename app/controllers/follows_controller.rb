@@ -21,7 +21,7 @@ class FollowsController < ApplicationController
 
   def create
     @follow = Follow.new(follow_params)
-    @follow.follower_id = current_user.id
+    @follow.follower = current_user
 
     if @follow.save
       redirect_to follows_path, notice: I18n.t("results.follows.create")

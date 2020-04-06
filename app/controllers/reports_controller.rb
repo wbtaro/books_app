@@ -11,7 +11,8 @@ class ReportsController < ApplicationController
   # GET /reports/1
   def show
     @owner = @report.user
-    set_posted_comments_and_commenters(@report)
+    set_posted_comments(@report)
+    set_commenters(@report)
     set_new_comment(@report)
   end
 

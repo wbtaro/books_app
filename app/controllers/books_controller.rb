@@ -11,7 +11,8 @@ class BooksController < ApplicationController
   # GET /books/1
   def show
     @owner = @book.user
-    set_posted_comments_and_commenters(@book)
+    set_posted_comments(@book)
+    set_commenters(@book)
     set_new_comment(@book)
   end
 
@@ -27,10 +28,10 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book.user = current_user
 
     if @book.save
-      redirect_to @book, notice: t("results.common.create", resource: t("activerecord.models.book.one"))
+      redirect_to @book, notice: I18n.t("results.common.create", resource: t("activerecord.models.book.one"))
     else
       render :new
     end

@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
+    @comment.user = current_user
 
     if @comment.save
       redirect_to commented_resource, notice: I18n.t("results.common.create", resource: I18n.t("activerecord.models.comment.one"))
