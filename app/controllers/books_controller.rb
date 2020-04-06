@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
 
     if @book.save
-      redirect_to @book, notice: t("results.common.create", resource: I18n.t("activerecord.models.book.one"))
+      redirect_to @book, notice: t("results.common.create", resource: t("activerecord.models.book.one"))
     else
       render :new
     end
