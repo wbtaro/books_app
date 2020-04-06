@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
   # GET /reports/new
   def new
     @report = Report.new
-    @report.date = Time.now
+    @report.date = Time.current
   end
 
   # GET /reports/1/edit
