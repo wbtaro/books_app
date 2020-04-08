@@ -1,0 +1,19 @@
+shimada_to_yamamoto_book_1:
+  commentable: akazukin (Book)
+  user: shimada
+  text: 私も読みました
+
+kato_to_yamamoto_book_1:
+  commentable: akazukin (Book)
+  user: kato
+  text: 昨日買いました
+
+shimada_to_yamamoto_report_1:
+  commentable: yamamoto_1 (Report)
+  user: shimada
+  text: JSいいですよね
+
+kato_to_yamamoto_report_1:
+  commentable: yamamoto_1 (Report)
+  user: kato
+  text: 私もやります

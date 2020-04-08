@@ -1,40 +1,40 @@
 require "test_helper"
  
 class TestUser < ActiveSupport::TestCase
-  test "create_unique_stringが毎回異なる値を返す" do
+  test "create_unique_string" do
     assert_not_equal(User.create_unique_string, User.create_unique_string)
   end
 
-  test "update_with_passwordでcurrent_passwordなしで情報更新する（パスワード含めない）" do
-    @john = users(:john)
+  test "update_with_password without password" do
+    @john = users(:shimada)
     params = {
-      email: "john@example.com",
-      name: "John",
+      email: "shimada@example.com",
+      name: "島田",
       postal_code: "999-999",
-      address: "Tokyo",
-      description: "OK!!"
+      address: "岡山",
+      description: "岡山に引っ越しました"
     }
     assert @john.update_with_password(params)
   end
 
-  test "update_with_passwordでcurrent_passwordなしで情報更新する（パスワード含める）" do
-    @john = users(:john)
+  test "update_with_password with password" do
+    @john = users(:shimada)
     params = {
-      email: "john@example.com",
+      email: "shimada@example.com",
       password: "bbbbbb",
       password_confirmation: "bbbbbb",
-      name: "John",
+      name: "島田",
       postal_code: "999-999",
-      address: "Tokyo",
-      description: "OK!!"
+      address: "岡山",
+      description: "岡山に引っ越しました"
     }
     assert @john.update_with_password(params)
   end
 
   test "find_for_github_oauthですでにDBに登録済み" do
     info = OmniAuth::AuthHash.new(
-      name: "Bob",
-      email: "Bob@example.com"
+      name: "山本",
+      email: "yamamoto@example.com"
     )
     auth = OmniAuth::AuthHash.new(
       provider: "GitHub",
@@ -47,8 +47,8 @@ class TestUser < ActiveSupport::TestCase
 
   test "find_for_github_oauthでまだDBに登録済みでない" do
     info = OmniAuth::AuthHash.new(
-      name: "Taro",
-      email: "taro@example.com"
+      name: "徳川",
+      email: "tokugawa@example.com"
     )
     auth = OmniAuth::AuthHash.new(
       provider: "GitHub",

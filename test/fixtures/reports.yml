@@ -1,0 +1,17 @@
+shimada_1:
+  title: Railsの学習1
+  text: Railsのモデルについて学習しました
+  date: 2020-01-01
+  user: shimada
+
+shimada_2:
+  title: Railsの学習2
+  text: Railsのコントローラについて学習しました
+  date: 2020-01-02
+  user: shimada
+
+yamamoto_1:
+  title: Rubyの学習1
+  text: Rubyの配列について学習しました
+  date: 2020-03-01
+  user: yamamoto
