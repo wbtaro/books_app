@@ -27,6 +27,7 @@
 
 <%- if current_user.id == @book.user_id %>
   <%= link_to t("operations.edit", resource: ""), edit_book_path(@book) %> |
+  <%= link_to t("operations.destroy"), @book, method: :delete, data: { confirm: t("warnings.delete") } %>
 <% end %>
 <br>
 <%= render "shared/comments" %>

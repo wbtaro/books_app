@@ -31,7 +31,7 @@ class BooksController < ApplicationController
     @book.user = current_user
 
     if @book.save
-      redirect_to @book, notice: I18n.t("results.common.create", resource: t("activerecord.models.book.one"))
+      redirect_to @book, notice: t("results.common.create", resource: t("activerecord.models.book.one"))
     else
       render :new
     end
@@ -40,12 +40,12 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   def update
     if !current_user_is_owner(@book.user_id)
-      redirect_to @book, notice: I18n.t("warnings.invalid_operation")
+      redirect_to @book, notice: t("warnings.invalid_operation")
       return
     end
 
     if @book.update(book_params)
-      redirect_to @book, notice: I18n.t("results.common.update", resource: I18n.t("activerecord.models.book.one"))
+      redirect_to @book, notice: t("results.common.update", resource: t("activerecord.models.book.one"))
     else
       render :edit
     end
@@ -54,12 +54,12 @@ class BooksController < ApplicationController
   # DELETE /books/1
   def destroy
     if !current_user_is_owner(@book.user_id)
-      redirect_to @book, notice: I18n.t("warnings.invalid_operation")
+      redirect_to @book, notice: t("warnings.invalid_operation")
       return
     end
 
     @book.destroy
-    redirect_to books_url, notice: I18n.t("results.common.destroy", resource: I18n.t("activerecord.models.book.one"))
+    redirect_to books_url, notice: t("results.common.destroy", resource: t("activerecord.models.book.one"))
   end
 
   private

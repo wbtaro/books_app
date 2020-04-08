@@ -21,7 +21,8 @@
 </p>
 
 <%- if @report.user_id == current_user.id %>
-  <%= link_to t("operations.edit", resource: ""), edit_report_path(@report) %>
+  <%= link_to t("operations.edit", resource: ""), edit_report_path(@report) %> | 
+  <%= link_to t("operations.destroy"), @report, method: :delete, data: { confirm: t("warnings.delete") } %>
 <% end %>
 
 <br>

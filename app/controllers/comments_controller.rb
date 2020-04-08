@@ -22,12 +22,12 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if !current_user_is_owner(@comment.user_id)
-      redirect_to commented_resource, notice: I18n.t("warnings.invalid_operation")
+      redirect_to commented_resource, notice: t("warnings.invalid_operation")
       return
     end
 
     if @comment.update(comment_params)
-      redirect_to commented_resource, notice: I18n.t("results.common.update", resource: I18n.t("activerecord.models.comment.one"))
+      redirect_to commented_resource, notice: t("results.common.update", resource: t("activerecord.models.comment.one"))
     else
       redirect_to commented_resource
     end
@@ -36,12 +36,12 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   def destroy
     if !current_user_is_owner(@comment.user_id)
-      redirect_to commented_resource, notice: I18n.t("warnings.invalid_operation")
+      redirect_to commented_resource, notice: t("warnings.invalid_operation")
       return
     end
 
     @comment.destroy
-    redirect_to commented_resource, notice: I18n.t("results.common.destroy", resource: I18n.t("activerecord.models.comment.one"))
+    redirect_to commented_resource, notice: t("results.common.destroy", resource: t("activerecord.models.comment.one"))
   end
 
   private

@@ -32,7 +32,7 @@ class ReportsController < ApplicationController
     @report.user = current_user
 
     if @report.save
-      redirect_to @report, notice: I18n.t("results.common.create", resource: I18n.t("activerecord.models.report.one"))
+      redirect_to @report, notice: t("results.common.create", resource: t("activerecord.models.report.one"))
     else
       render :new
     end
@@ -41,12 +41,12 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1
   def update
     if !current_user_is_owner(@report.user_id)
-      redirect_to @report, notice: I18n.t("warnings.invalid_operation")
+      redirect_to @report, notice: t("warnings.invalid_operation")
       return
     end
 
     if @report.update(report_params)
-      redirect_to @report, notice: I18n.t("results.common.update", resource: I18n.t("activerecord.models.report.one"))
+      redirect_to @report, notice: t("results.common.update", resource: t("activerecord.models.report.one"))
     else
       render :edit
     end
@@ -55,12 +55,12 @@ class ReportsController < ApplicationController
   # DELETE /reports/1
   def destroy
     if !current_user_is_owner(@report.user_id)
-      redirect_to @report, notice: I18n.t("warnings.invalid_operation")
+      redirect_to @report, notice: t("warnings.invalid_operation")
       return
     end
 
     @report.destroy
-    redirect_to reports_url, notice: I18n.t("results.common.destroy", resource: I18n.t("activerecord.models.report.one"))
+    redirect_to reports_url, notice: t("results.common.destroy", resource: t("activerecord.models.report.one"))
   end
 
   private

@@ -45,7 +45,8 @@ class ApplicationController < ActionController::Base
     end
 
     def set_commenters(commentable_resource)
-      temp_commenters = User.includes(:comments).where(comments: { commentable_id: commentable_resource.id })
+      temp_commenters = User.includes(:comments).
+                          where(comments: { commentable_id: commentable_resource.id, commentable_type: commentable_resource.class.to_s })
       @commenters = {}
       @posted_comments.each do |comment|
         temp_commenters.each { |commenter| @commenters[comment.id] = commenter.name if comment.user_id == commenter.id }
