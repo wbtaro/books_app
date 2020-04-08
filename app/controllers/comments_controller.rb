@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to commented_resource, notice: I18n.t("results.common.create", resource: I18n.t("activerecord.models.comment.one"))
+      redirect_to commented_resource, notice: t("results.common.create", resource: t("activerecord.models.comment.one"))
     else
       redirect_to commented_resource
     end
