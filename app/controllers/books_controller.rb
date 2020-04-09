@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BooksController < ApplicationController
+class BooksController < CommentableResourcesController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books

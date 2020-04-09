@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FollowsController < ApplicationController
+class FollowsController < DisplayedWithFollowsController
   def  index
     @followees = current_user.followees.page params[:page]
     set_follows(@followees)

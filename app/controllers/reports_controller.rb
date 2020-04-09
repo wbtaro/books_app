@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ReportsController < ApplicationController
+class ReportsController < CommentableResourcesController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
   # GET /reports
