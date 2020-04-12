@@ -1,0 +1,16 @@
+<h2><%= Comment.model_name.human(count: 2) %></h2>
+
+<% @posted_comments.each do |comment| %>
+  <div class="comment_list">
+    <p><%= Comment.human_attribute_name(:commenter) %>: <%= @commenters[comment.id] %></p>
+    <p><%= Comment.human_attribute_name(:date) %>: <%= comment.created_at %></p>
+    <p><%= simple_format comment.text %></p>
+    <%- if comment.user_id == current_user.id %>
+      <%= link_to t("operations.edit", resource: ""), edit_comment_path(comment) %> | 
+      <%= link_to t("operations.destroy"), comment, method: :delete, data: { confirm: t("warnings.delete") } %> 
+    <% end %>
+  </div>
+<% end %>
+<br>
+<br>
+<%= render "comments/form" %>

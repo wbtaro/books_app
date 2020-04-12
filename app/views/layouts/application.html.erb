@@ -24,15 +24,17 @@
     <% end %>
   </p>
   <% if notice %>
-    <p class="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
   <% end %>
   <% if alert %>
-    <p class="alert"><%= alert %></p>
+    <p id="alert"><%= alert %></p>
   <% end %>
   <p>
     <% if user_signed_in? %>
-      <%= link_to t("activerecord.models.book.other"), books_path %> | 
+      <%= link_to t("activerecord.models.book.my_books"), books_path %> | 
+      <%= link_to t("activerecord.models.report.my_reports"), reports_path %> | 
       <%= link_to t("activerecord.models.book.followee_books"), booklists_path %> | 
+      <%= link_to t("activerecord.models.report.followee_reports"), reportlists_path %> | 
       <%= link_to t("activerecord.models.user.other"), users_path %> | 
       <%= link_to t("activerecord.models.follow.other"), follows_path %> |
       <%= link_to t("activerecord.models.follower.other"), followers_path %>

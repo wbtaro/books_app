@@ -1,14 +1,14 @@
 <table>
   <thead>
     <tr>
-      <th><%= t("activerecord.attributes.book.title") %></th>
-      <th><%= t("activerecord.attributes.book.memo") %></th>
-      <th><%= t("activerecord.attributes.book.author") %></th>
-      <th><%= t("activerecord.attributes.book.picture") %></th>
-        <%- if show_user %>
-          <th><%= t("activerecord.attributes.book.contributor") %></th>
-        <% end %>
-        <th colspan="3"></th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:memo) %></th>
+      <th><%= Book.human_attribute_name(:author) %></th>
+      <th><%= Book.human_attribute_name(:picture) %></th>
+      <%- if show_user %>
+        <th><%= Book.human_attribute_name(:contributor) %></th>
+      <% end %>
+      <th colspan="3"></th>
     </tr>
   </thead>
 

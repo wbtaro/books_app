@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BooksController < ApplicationController
+class BooksController < CommentableResourcesController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
@@ -10,6 +10,10 @@ class BooksController < ApplicationController
 
   # GET /books/1
   def show
+    @owner = @book.user
+    set_posted_comments(@book)
+    set_commenters(@book)
+    set_new_comment(@book)
   end
 
   # GET /books/new
@@ -24,10 +28,10 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book.user = current_user
 
     if @book.save
-      redirect_to @book, notice: I18n.t("results.books.create")
+      redirect_to @book, notice: t("results.common.create", resource: t("activerecord.models.book.one"))
     else
       render :new
     end
@@ -36,12 +40,12 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   def update
     if !current_user_is_owner(@book.user_id)
-      redirect_to @book, notice: I18n.t("warnings.invalid_operation")
+      redirect_to @book, notice: t("warnings.invalid_operation")
       return
     end
 
     if @book.update(book_params)
-      redirect_to @book, notice: I18n.t("results.books.update")
+      redirect_to @book, notice: t("results.common.update", resource: t("activerecord.models.book.one"))
     else
       render :edit
     end
@@ -50,12 +54,12 @@ class BooksController < ApplicationController
   # DELETE /books/1
   def destroy
     if !current_user_is_owner(@book.user_id)
-      redirect_to @book, notice: I18n.t("warnings.invalid_operation")
+      redirect_to @book, notice: t("warnings.invalid_operation")
       return
     end
 
     @book.destroy
-    redirect_to books_url, notice: I18n.t("results.books.destroy")
+    redirect_to books_url, notice: t("results.common.destroy", resource: t("activerecord.models.book.one"))
   end
 
   private

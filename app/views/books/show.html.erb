@@ -1,24 +1,33 @@
+<h1><%= Book.model_name.human %></h1>
+
 <p>
-  <strong><%= t("activerecord.attributes.book.title") %>:</strong>
+  <strong><%= Book.human_attribute_name(:contributor) %>:</strong>
+  <%= @owner.name %>
+</p>
+
+<p>
+  <strong><%= Book.human_attribute_name(:title) %>:</strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.book.memo") %>:</strong>
-  <%= @book.memo %>
+  <strong><%= Book.human_attribute_name(:memo) %>:</strong>
+  <%= simple_format @book.memo %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.book.author") %>:</strong>
+  <strong><%= Book.human_attribute_name(:author) %>:</strong>
   <%= @book.author %>
 </p>
 
 <p>
-  <strong><%= t("activerecord.attributes.book.picture") %>:</strong>
+  <strong><%= Book.human_attribute_name(:picture) %>:</strong>
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
 <%- if current_user.id == @book.user_id %>
   <%= link_to t("operations.edit", resource: ""), edit_book_path(@book) %> |
+  <%= link_to t("operations.destroy"), @book, method: :delete, data: { confirm: t("warnings.delete") } %>
 <% end %>
-<%= link_to t("operations.back"), books_path %>
+<br>
+<%= render "shared/comments" %>

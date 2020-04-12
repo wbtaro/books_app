@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController
+class UsersController < DisplayedWithFollowsController
   before_action :set_user, only: [:show]
 
   # Get /users

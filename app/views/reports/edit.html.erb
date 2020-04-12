@@ -1,0 +1,6 @@
+<h1><%= t("operations.edit", resource: t("activerecord.models.report.one")) %></h1>
+
+<%= render 'form', report: @report %>
+
+<%= link_to t("operations.show"), @report %> |
+<%= link_to t("operations.back"), reports_path %>
