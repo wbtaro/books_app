@@ -13,3 +13,7 @@ yamamoto_to_shimada:
 inoue_to_shimada:
   follower: inoue
   followee: shimada
+
+kato_to_shimada:
+  follower: kato
+  followee: shimada

@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
 class CommentsTest < ApplicationSystemTestCase
-  include Devise::Test::IntegrationHelpers 
+  include Devise::Test::IntegrationHelpers
   setup do
     sign_in users(:shimada)
   end
 
-  test "list comment to books" do
+  test "list comments on books" do
     commented_book = books(:akazukin)
     visit book_path(commented_book)
-
     commented_book.comments.each do |comment|
       assert_text comment.user.name
       assert_text comment.created_at
@@ -17,10 +18,9 @@ class CommentsTest < ApplicationSystemTestCase
     end
   end
 
-  test "list comment to reports" do
+  test "list comment on reports" do
     commented_report = reports(:yamamoto_1)
     visit report_path(commented_report)
-
     commented_report.comments.each do |comment|
       assert_text comment.user.name
       assert_text comment.created_at
@@ -30,19 +30,15 @@ class CommentsTest < ApplicationSystemTestCase
 
   test "create comment to books" do
     visit book_path(books(:akazukin))
-
     fill_in "comment_text", with: "頑張ってください"
     click_on "投稿する"
-
     assert_text "コメントを作成しました"
   end
 
   test "create comment to reports" do
     visit report_path(reports(:yamamoto_1))
-
     fill_in "comment_text", with: "頑張ってください"
     click_on "投稿する"
-
     assert_text "コメントを作成しました"
   end
 
@@ -55,7 +51,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_text "コメントを更新しました"
   end
 
-  test "destroy report to books" do
+  test "destroy commnet on books" do
     visit book_path(books(:akazukin))
     accept_confirm do
       click_link "削除", match: :first
@@ -63,7 +59,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_text "コメントを削除しました"
   end
 
-  test "destroy report to reports" do
+  test "destroy comment on reports" do
     visit report_path(reports(:yamamoto_1))
     accept_confirm do
       click_link "削除", match: :first

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
 class BooklistsTest < ApplicationSystemTestCase
-  include Devise::Test::IntegrationHelpers 
+  include Devise::Test::IntegrationHelpers
   setup do
     @user = users(:shimada)
     sign_in @user
@@ -9,7 +11,6 @@ class BooklistsTest < ApplicationSystemTestCase
 
   test "booklist index" do
     visit booklists_path
-
     @user.followees.each do |followee|
       followee.books.each do |book|
         assert_text book.title
@@ -25,12 +26,10 @@ class BooklistsTest < ApplicationSystemTestCase
   test "show booklist" do
     booklist_owner = users(:yamamoto)
     visit booklist_path(booklist_owner)
-
     booklist_owner.books.each { |book| assert_text book.title }
     within("table") do
       assert_no_text "削除"
       assert_no_text "編集"
     end
   end
-
 end
