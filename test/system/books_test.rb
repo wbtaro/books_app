@@ -3,7 +3,6 @@
 require "application_system_test_case"
 
 class BooksTest < ApplicationSystemTestCase
-  include Devise::Test::IntegrationHelpers
   setup do
     @user = users(:shimada)
     sign_in @user
@@ -24,36 +23,43 @@ class BooksTest < ApplicationSystemTestCase
 
   test "create book: succeed" do
     visit new_book_path
-    fill_in "book_title", with: "浦島太郎"
-    fill_in "book_memo", with: "日本昔話"
-    fill_in "book_author", with: "村田"
-    click_on "投稿する"
-
+    within(id: "book_form") do
+      fill_in "book_title", with: "浦島太郎"
+      fill_in "book_memo", with: "日本昔話"
+      fill_in "book_author", with: "村田"
+      click_on "投稿する"
+    end
     assert_text "本情報を作成しました"
   end
   test "create book: fail" do
     visit new_book_path
-    fill_in "book_memo", with: "日本昔話"
-    fill_in "book_author", with: "村田"
-    click_on "投稿する"
+    within(id: "book_form") do
+      fill_in "book_memo", with: "日本昔話"
+      fill_in "book_author", with: "村田"
+      click_on "投稿する"
+    end
     assert_text "タイトルを入力してください"
   end
 
   test "update book: succeed" do
     visit edit_book_path(books(:momotaro))
-    fill_in "book_title", with: "浦島太郎"
-    fill_in "book_memo", with: "日本昔話"
-    fill_in "book_author", with: "不明"
-    click_on "投稿する"
+    within(id: "book_form") do
+      fill_in "book_title", with: "浦島太郎"
+      fill_in "book_memo", with: "日本昔話"
+      fill_in "book_author", with: "不明"
+      click_on "投稿する"
+    end
     assert_text "本情報を更新しました"
   end
 
   test "update book: fail" do
     visit edit_book_path(books(:momotaro))
-    fill_in "book_title", with: ""
-    fill_in "book_memo", with: "日本昔話"
-    fill_in "book_author", with: "不明"
-    click_on "投稿する"
+    within(id: "book_form") do
+      fill_in "book_title", with: ""
+      fill_in "book_memo", with: "日本昔話"
+      fill_in "book_author", with: "不明"
+      click_on "投稿する"
+    end
     assert_text "タイトルを入力してください"
   end
 

@@ -3,7 +3,6 @@
 require "application_system_test_case"
 
 class UsersTest < ApplicationSystemTestCase
-  include Devise::Test::IntegrationHelpers
   setup do
     @user = users(:shimada)
     sign_in @user

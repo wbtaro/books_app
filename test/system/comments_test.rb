@@ -3,7 +3,6 @@
 require "application_system_test_case"
 
 class CommentsTest < ApplicationSystemTestCase
-  include Devise::Test::IntegrationHelpers
   setup do
     sign_in users(:shimada)
   end
@@ -30,15 +29,19 @@ class CommentsTest < ApplicationSystemTestCase
 
   test "create comment to books" do
     visit book_path(books(:akazukin))
-    fill_in "comment_text", with: "頑張ってください"
-    click_on "投稿する"
+    within(id: "comment_form") do
+      fill_in "comment_text", with: "頑張ってください"
+      click_on "投稿する"
+    end
     assert_text "コメントを作成しました"
   end
 
   test "create comment to reports" do
     visit report_path(reports(:yamamoto_1))
-    fill_in "comment_text", with: "頑張ってください"
-    click_on "投稿する"
+    within(id: "comment_form") do
+      fill_in "comment_text", with: "頑張ってください"
+      click_on "投稿する"
+    end
     assert_text "コメントを作成しました"
   end
 
@@ -46,8 +49,10 @@ class CommentsTest < ApplicationSystemTestCase
   # テストケースも一つ
   test "update comment" do
     visit edit_comment_path(comments(:shimada_to_yamamoto_book_1))
-    fill_in "comment_text", with: "私も読みましたが、面白かったです"
-    click_on "投稿する"
+    within(id: "comment_form") do
+      fill_in "comment_text", with: "私も読みましたが、面白かったです"
+      click_on "投稿する"
+    end
     assert_text "コメントを更新しました"
   end
 
