@@ -1,0 +1,35 @@
+shimada:
+  email: shimada@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "aaaaaa") %>
+  name: 島田
+  postal_code: 111-1111
+  address: 神戸
+  description: 島田です
+  uid: 11111
+
+inoue:
+  email: inoue@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "aaaaaa") %>
+  name: 井上
+  postal_code: 222-2222
+  address: 大津
+  description: 琵琶湖でバーベキュー 
+  uid: 22222
+
+yamamoto:
+  email: yamamoto@example.com
+  name: 山本
+  postal_code: 333-3333
+  address: 京都
+  description: 左京区在住
+  provider: GitHub
+  uid: 12345
+
+kato:
+  email: kato@example.com
+  name: 加藤
+  postal_code: 444-4444
+  address: 大阪
+  description: たこ焼き大好き
+  provider: "GitHub"
+  uid: 56789

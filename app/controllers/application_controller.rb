@@ -30,14 +30,6 @@ class ApplicationController < ActionController::Base
     end
 
   protected
-    def update_resource(resource, params)
-      if params[:password].present? && params[:password_confirmation].present?
-        resource.update_attributes(params)
-      else
-        resource.update_without_password(params)
-      end
-    end
-
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :postal_code, :address, :description, :avatar])
       devise_parameter_sanitizer.permit(:account_update, keys: [:name, :postal_code, :address, :description, :avatar])

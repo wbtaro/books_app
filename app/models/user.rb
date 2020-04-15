@@ -8,13 +8,14 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i(github)
   paginates_per 5
   has_one_attached :avatar
-  has_many :followings, foreign_key: :follower_id, class_name: "Follow"
-  has_many :followees, through: :followings, class_name: "User"
-  has_many :followed, foreign_key: :followee_id, class_name: "Follow"
-  has_many :followers, through: :followed, class_name: "User"
-  has_many :books
-  has_many :reports
-  has_many :comments
+  has_many :followings, foreign_key: :follower_id, class_name: "Follow", dependent: :destroy
+  has_many :followees, through: :followings, class_name: "User", dependent: :destroy
+  has_many :followed, foreign_key: :followee_id, class_name: "Follow", dependent: :destroy
+  has_many :followers, through: :followed, class_name: "User", dependent: :destroy
+  has_many :books, dependent: :destroy
+  has_many :reports, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  validates :name, presence: true
 
   def update_with_password(params, *options)
     params.delete(:current_password)

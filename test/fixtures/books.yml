@@ -1,0 +1,23 @@
+momotaro:
+  title: 桃太郎
+  memo: 桃から生まれた桃太郎
+  author: 岡村
+  user: shimada
+
+kintaro:
+  title: 金太郎
+  memo: まさかり担いだ金太郎
+  author: 熊谷
+  user: shimada
+
+akazukin:
+  title: 赤ずきん
+  memo: 狼に食べられる
+  author: グリム童話
+  user: yamamoto
+
+anayuki:
+  title: アナと雪の女王
+  memo: 未知の旅へ
+  author: ディズニー
+  user: inoue
