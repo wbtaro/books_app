@@ -38,7 +38,7 @@ plugin :tmp_restart
 # Work with Nginx
 rails_env = ENV.fetch("RAILS_ENV") { "production" }
 if rails_env == "production"
-  bind "unix:///opt/books_app/tmp/sockets/puma.sock"
+  bind "unix:///opt/books_app/current/tmp/sockets/puma.sock"
   daemonize true
 else
   port ENV.fetch("PORT") { 3000 }
