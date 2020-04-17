@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='0.866017' skipped='0' failures='0' errors='0' name="UsersTest" assertions='11' tests='2' timestamp="2020-04-17T22:41:39+09:00">
+  <testcase time='0.367049' file="test/system/users_test.rb" name="test_show_user" assertions='5'>
+  </testcase>
+  <testcase time='0.498968' file="test/system/users_test.rb" name="test_users_index" assertions='6'>
+  </testcase>
+</testsuite>

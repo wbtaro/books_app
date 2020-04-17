@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='22.145254' skipped='0' failures='0' errors='0' name="ReportlistsTest" assertions='7' tests='2' timestamp="2020-04-17T22:41:39+09:00">
+  <testcase time='11.091528' file="test/system/reportlists_test.rb" name="test_reportlists_index" assertions='3'>
+  </testcase>
+  <testcase time='11.053726' file="test/system/reportlists_test.rb" name="test_show_reportlists" assertions='4'>
+  </testcase>
+</testsuite>

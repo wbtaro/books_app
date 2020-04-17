@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='2.857621' skipped='0' failures='0' errors='0' name="FollowsTest" assertions='7' tests='6' timestamp="2020-04-17T22:41:39+09:00">
+  <testcase time='0.303413' file="test/system/follows_test.rb" name="test_follws_index" assertions='2'>
+  </testcase>
+  <testcase time='0.544293' file="test/system/follows_test.rb" name="test_destroy_follow_on_follwers_page" assertions='1'>
+  </testcase>
+  <testcase time='0.508450' file="test/system/follows_test.rb" name="test_destroy_follow_on_users_page" assertions='1'>
+  </testcase>
+  <testcase time='0.447538' file="test/system/follows_test.rb" name="test_destroy_follow_on_follows_page" assertions='1'>
+  </testcase>
+  <testcase time='0.491268' file="test/system/follows_test.rb" name="test_create_follow_on_followers_page" assertions='1'>
+  </testcase>
+  <testcase time='0.562659' file="test/system/follows_test.rb" name="test_create_follow:_on_users_page" assertions='1'>
+  </testcase>
+</testsuite>

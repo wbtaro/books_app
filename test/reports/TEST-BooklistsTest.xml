@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='0.785357' skipped='0' failures='0' errors='0' name="BooklistsTest" assertions='9' tests='2' timestamp="2020-04-17T22:41:39+09:00">
+  <testcase time='0.300924' file="test/system/booklists_test.rb" name="test_show_booklist" assertions='3'>
+  </testcase>
+  <testcase time='0.484432' file="test/system/booklists_test.rb" name="test_booklist_index" assertions='6'>
+  </testcase>
+</testsuite>

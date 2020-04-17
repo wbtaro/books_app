@@ -27,18 +27,18 @@ class BooksTest < ApplicationSystemTestCase
       fill_in "book_title", with: "浦島太郎"
       fill_in "book_memo", with: "日本昔話"
       fill_in "book_author", with: "村田"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "本情報を作成しました"
+    assert_text I18n.t("results.common.create", resource: Book.model_name.human)
   end
   test "create book: fail" do
     visit new_book_path
     within(id: "book_form") do
       fill_in "book_memo", with: "日本昔話"
       fill_in "book_author", with: "村田"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "タイトルを入力してください"
+    assert_text Book.human_attribute_name(:title) + I18n.t("errors.messages.blank")
   end
 
   test "update book: succeed" do
@@ -47,9 +47,9 @@ class BooksTest < ApplicationSystemTestCase
       fill_in "book_title", with: "浦島太郎"
       fill_in "book_memo", with: "日本昔話"
       fill_in "book_author", with: "不明"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "本情報を更新しました"
+    assert_text I18n.t("results.common.update", resource: Book.model_name.human)
   end
 
   test "update book: fail" do
@@ -58,16 +58,16 @@ class BooksTest < ApplicationSystemTestCase
       fill_in "book_title", with: ""
       fill_in "book_memo", with: "日本昔話"
       fill_in "book_author", with: "不明"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "タイトルを入力してください"
+    assert_text Book.human_attribute_name(:title) + I18n.t("errors.messages.blank")
   end
 
   test "destroy book" do
     visit books_path
     accept_confirm do
-      click_link "削除", match: :first
+      click_link I18n.t("operations.destroy"), match: :first
     end
-    assert_text "本情報を削除しました"
+    assert_text I18n.t("results.common.destroy", resource: Book.model_name.human)
   end
 end

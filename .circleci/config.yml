@@ -3,7 +3,7 @@ jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     parallelism: 3 # run three instances of this job in parallel
     docker: # run the steps with Docker
-      - image: circleci/ruby:2.7.0-buster-node-browsers # ...with this image as the primary container; this is where all `steps` will run
+      - image: circleci/ruby:2.7.0-node-browsers # ...with this image as the primary container; this is where all `steps` will run
         environment: # environment variables for primary container
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -11,6 +11,7 @@ jobs: # a collection of steps
           PGHOST: 127.0.0.1
           PGUSER: circleci-demo-ruby
           RAILS_ENV: test
+          LANG: "ja_JP.UTF-8"
       - image: circleci/postgres:11-alpine # database image
         environment: # environment variables for database
           POSTGRES_USER: circleci-demo-ruby
@@ -68,12 +69,12 @@ jobs: # a collection of steps
       - run:
           name: Run unit tests
           command: bundle exec rails test
-
+      
       - run:
           name: Run system tests
           command: bundle exec rails test:system
 
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test_results
+          path: test/reports
       # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
