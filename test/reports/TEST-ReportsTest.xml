@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='27.346423' skipped='0' failures='0' errors='0' name="ReportsTest" assertions='16' tests='7' timestamp="2020-04-17T22:41:39+09:00">
+  <testcase time='11.018230' file="test/system/reports_test.rb" name="test_show_report" assertions='3'>
+  </testcase>
+  <testcase time='0.521443' file="test/system/reports_test.rb" name="test_destroy_report" assertions='1'>
+  </testcase>
+  <testcase time='11.691051' file="test/system/reports_test.rb" name="test_update_report:_succeed" assertions='1'>
+  </testcase>
+  <testcase time='0.909740' file="test/system/reports_test.rb" name="test_create_report:_succeed" assertions='1'>
+  </testcase>
+  <testcase time='0.330947' file="test/system/reports_test.rb" name="test_reports_index" assertions='4'>
+  </testcase>
+  <testcase time='0.921716' file="test/system/reports_test.rb" name="test_update_report:_fail_because_title,_date_and_text_are_not_filled" assertions='3'>
+  </testcase>
+  <testcase time='1.953296' file="test/system/reports_test.rb" name="test_create_report:_fail_because_title,_date_and_text_are_not_filled" assertions='3'>
+  </testcase>
+</testsuite>

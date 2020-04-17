@@ -17,8 +17,8 @@ class BooklistsTest < ApplicationSystemTestCase
       end
     end
     within("table") do
-      assert_no_text "削除"
-      assert_no_text "編集"
+      assert_no_text I18n.t("operations.destroy")
+      assert_no_text I18n.t("operations.edit", resource: "")
     end
   end
 
@@ -27,8 +27,8 @@ class BooklistsTest < ApplicationSystemTestCase
     visit booklist_path(booklist_owner)
     booklist_owner.books.each { |book| assert_text book.title }
     within("table") do
-      assert_no_text "削除"
-      assert_no_text "編集"
+      assert_no_text I18n.t("operations.destroy")
+      assert_no_text I18n.t("operations.edit", resource: "")
     end
   end
 end

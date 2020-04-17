@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='4.039966' skipped='0' failures='0' errors='0' name="BooksTest" assertions='10' tests='7' timestamp="2020-04-17T22:41:39+09:00">
+  <testcase time='0.302316' file="test/system/books_test.rb" name="test_books_index" assertions='2'>
+  </testcase>
+  <testcase time='0.871433' file="test/system/books_test.rb" name="test_update_book:_fail" assertions='1'>
+  </testcase>
+  <testcase time='0.821756' file="test/system/books_test.rb" name="test_create_book:_succeed" assertions='1'>
+  </testcase>
+  <testcase time='0.445978' file="test/system/books_test.rb" name="test_destroy_book" assertions='1'>
+  </testcase>
+  <testcase time='0.320902' file="test/system/books_test.rb" name="test_show_book" assertions='3'>
+  </testcase>
+  <testcase time='0.579256' file="test/system/books_test.rb" name="test_create_book:_fail" assertions='1'>
+  </testcase>
+  <testcase time='0.698326' file="test/system/books_test.rb" name="test_update_book:_succeed" assertions='1'>
+  </testcase>
+</testsuite>

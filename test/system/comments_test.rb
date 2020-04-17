@@ -31,18 +31,18 @@ class CommentsTest < ApplicationSystemTestCase
     visit book_path(books(:akazukin))
     within(id: "comment_form") do
       fill_in "comment_text", with: "頑張ってください"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "コメントを作成しました"
+    assert_text I18n.t("results.common.create", resource: Comment.model_name.human)
   end
 
   test "create comment to reports" do
     visit report_path(reports(:yamamoto_1))
     within(id: "comment_form") do
       fill_in "comment_text", with: "頑張ってください"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "コメントを作成しました"
+    assert_text I18n.t("results.common.create", resource: Comment.model_name.human)
   end
 
   # 編集画面はコメントが付いたオブジェクトにかかわらず共通なので
@@ -51,24 +51,24 @@ class CommentsTest < ApplicationSystemTestCase
     visit edit_comment_path(comments(:shimada_to_yamamoto_book_1))
     within(id: "comment_form") do
       fill_in "comment_text", with: "私も読みましたが、面白かったです"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "コメントを更新しました"
+    assert_text I18n.t("results.common.update", resource: Comment.model_name.human)
   end
 
   test "destroy commnet on books" do
     visit book_path(books(:akazukin))
     accept_confirm do
-      click_link "削除", match: :first
+      click_link I18n.t("operations.destroy"), match: :first
     end
-    assert_text "コメントを削除しました"
+    assert_text I18n.t("results.common.destroy", resource: Comment.model_name.human)
   end
 
   test "destroy comment on reports" do
     visit report_path(reports(:yamamoto_1))
     accept_confirm do
-      click_link "削除", match: :first
+      click_link I18n.t("operations.destroy"), match: :first
     end
-    assert_text "コメントを削除しました"
+    assert_text I18n.t("results.common.destroy", resource: Comment.model_name.human)
   end
 end

@@ -16,31 +16,31 @@ class FollowsTest < ApplicationSystemTestCase
 
   test "create follow on followers page" do
     visit followers_path
-    click_on "フォローする", match: :first
-    assert_text "フォローしました"
+    click_on I18n.t("operations.follow"), match: :first
+    assert_text I18n.t("results.follows.create")
   end
 
   test "create follow: on users page" do
     visit users_path
-    click_on "フォローする", match: :first
-    assert_text "フォローしました"
+    click_on I18n.t("operations.follow"), match: :first
+    assert_text I18n.t("results.follows.create")
   end
 
   test "destroy follow on follows page" do
     visit follows_path
-    click_on "フォローをやめる", match: :first
-    assert_text "フォローをやめました"
+    click_on I18n.t("operations.cancel_follow"), match: :first
+    assert_text I18n.t("results.follows.destroy")
   end
 
   test "destroy follow on follwers page" do
     visit follows_path
-    click_on "フォローをやめる", match: :first
-    assert_text "フォローをやめました"
+    click_on I18n.t("operations.cancel_follow"), match: :first
+    assert_text I18n.t("results.follows.destroy")
   end
 
   test "destroy follow on users page" do
     visit users_path
-    click_on "フォローをやめる", match: :first
-    assert_text "フォローをやめました"
+    click_on I18n.t("operations.cancel_follow"), match: :first
+    assert_text I18n.t("results.follows.destroy")
   end
 end
