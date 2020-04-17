@@ -22,7 +22,7 @@ class ReportsTest < ApplicationSystemTestCase
       fill_in "report_title", with: "Railsの学習3"
       fill_in "report_date", with: "2020-04-01"
       fill_in "report_text", with: "Railsのルーティングについて学習しました"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
     assert_text "日報を作成しました"
   end
