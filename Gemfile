@@ -66,3 +66,7 @@ gem "devise"
 
 gem "omniauth"
 gem "omniauth-github"
+
+gem "capistrano"
+gem "capistrano-rbenv"
+gem "capistrano-rails"
