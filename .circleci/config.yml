@@ -9,12 +9,12 @@ jobs: # a collection of steps
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
-          PGUSER: circleci-demo-ruby
+          PGUSER: ryotaro
           RAILS_ENV: test
           LANG: "ja_JP.UTF-8"
       - image: circleci/postgres:11-alpine # database image
         environment: # environment variables for database
-          POSTGRES_USER: circleci-demo-ruby
+          POSTGRES_USER: ryotaro
           POSTGRES_DB: books_app_test
           POSTGRES_PASSWORD: ""
     steps: # a collection of executable commands
@@ -78,3 +78,53 @@ jobs: # a collection of steps
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test/reports
       # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
+  deploy:
+    docker: # run the steps with Docker
+      - image: circleci/ruby:2.7.0-node-browsers # ...with this image as the primary container; this is where all `steps` will run
+        environment: # environment variables for primary container
+          BUNDLE_PATH: vendor/bundle
+    steps:
+      - checkout
+
+      # Which version of bundler?
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
+
+      - run: # Install Ruby dependencies
+          name: Bundle Install
+          command: bundle check --path vendor/bundle || bundle install --deployment
+
+      # Store bundle cache for Ruby dependencies
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+            
+      - run:
+          name: Create master.key
+          command: echo $RAILS_MASTER_KEY >> "config/master.key"
+          
+      - add_ssh_keys:
+          fingerprints:
+            - "f9:f9:35:0c:6e:de:f6:80:23:16:e2:0a:dc:51:66:bd"
+
+      - run:
+          name: Deploy
+          command: bundle exec cap production deploy
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          # filters:
+          #   branches:
+          #     only: master
