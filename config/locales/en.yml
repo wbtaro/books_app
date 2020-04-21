@@ -158,15 +158,15 @@ en:
       destroy: "%{resource} was successfully destroyed"
       update: "%{resource} was successfully updated"
     follows:
-      create: You uccessfully followed
+      create: You successfully followed
       destroy: You canceled follow
       already_follow: You already followed
   errors:
     format: "%{attribute} %{message}"
     messages:
       accepted: must be accepted
-      blank: can't be blank
-      confirmation: doesn't match %{attribute}
+      blank: " can't be blank"
+      confirmation: " doesn't match %{attribute}"
       empty: can't be empty
       equal_to: must be equal to %{count}
       even: must be even

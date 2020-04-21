@@ -44,15 +44,6 @@ ja:
         commenter: "コメント者"
         date: "日時"
         text: 本文
-  operations:
-    show: 詳細
-    edit: "%{resource}編集"
-    destroy: 削除
-    new: "%{resource}新規作成"
-    back: 戻る
-    follow: フォローする
-    cancel_follow: フォローをやめる
-    post: 投稿する
   date:
     abbr_day_names:
     - 日
@@ -152,6 +143,15 @@ ja:
       day: 日
       month: 月
       year: 年
+  operations:
+    show: 詳細
+    edit: "%{resource}編集"
+    destroy: 削除
+    new: "%{resource}新規作成"
+    back: 戻る
+    follow: フォローする
+    cancel_follow: フォローをやめる
+    post: 投稿する
   warnings:
     delete: 本当に削除しますか？
     invalid_operation: 無効な操作です

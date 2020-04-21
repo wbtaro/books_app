@@ -22,20 +22,22 @@ class ReportsTest < ApplicationSystemTestCase
       fill_in "report_title", with: "Railsの学習3"
       fill_in "report_date", with: "2020-04-01"
       fill_in "report_text", with: "Railsのルーティングについて学習しました"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "日報を作成しました"
+    assert_text I18n.t("results.common.create", resource: Report.model_name.human)
   end
 
   test "create report: fail because title, date and text are not filled" do
     visit new_report_path
     within(id: "report_form") do
+      fill_in "report_title", with: ""
       fill_in "report_date", with: ""
-      click_on "投稿する"
+      fill_in "report_text", with: ""
+      click_on I18n.t("operations.post")
     end
-    assert_text "タイトルを入力してください"
-    assert_text "日付を入力してください"
-    assert_text "本文を入力してください"
+    assert_text Report.human_attribute_name(:title) + I18n.t("errors.messages.blank")
+    assert_text Report.human_attribute_name(:date) + I18n.t("errors.messages.blank")
+    assert_text Report.human_attribute_name(:text) + I18n.t("errors.messages.blank")
   end
 
   test "show report" do
@@ -52,27 +54,29 @@ class ReportsTest < ApplicationSystemTestCase
       fill_in "report_title", with: "JSの学習1"
       fill_in "report_date", with: "2019-12-31"
       fill_in "report_text", with: "JSの文法を学習しました"
-      click_on "投稿する"
+      click_on I18n.t("operations.post")
     end
-    assert_text "日報を更新しました"
+    assert_text I18n.t("results.common.update", resource: Report.model_name.human)
   end
 
   test "update report: fail because title, date and text are not filled" do
-    visit new_report_path
+    visit edit_report_path(reports(:shimada_1))
     within(id: "report_form") do
+      fill_in "report_title", with: ""
       fill_in "report_date", with: ""
-      click_on "投稿する"
+      fill_in "report_text", with: ""
+      click_on I18n.t("operations.post")
     end
-    assert_text "タイトルを入力してください"
-    assert_text "日付を入力してください"
-    assert_text "本文を入力してください"
+    assert_text Report.human_attribute_name(:title) + I18n.t("errors.messages.blank")
+    assert_text Report.human_attribute_name(:date) + I18n.t("errors.messages.blank")
+    assert_text Report.human_attribute_name(:text) + I18n.t("errors.messages.blank")
   end
 
   test "destroy report" do
     visit reports_path
     accept_confirm do
-      click_link "削除", match: :first
+      click_link I18n.t("operations.destroy"), match: :first
     end
-    assert_text "日報を削除しました"
+    assert_text I18n.t("results.common.destroy", resource: Report.model_name.human)
   end
 end

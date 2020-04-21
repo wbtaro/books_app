@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='7.574348' skipped='0' failures='0' errors='1' name="AccountTest" assertions='11' tests='9' timestamp="2020-04-17T22:41:39+09:00">
+  <testcase time='0.476790' file="test/system/account_test.rb" name="test_sign_out" assertions='1'>
+  </testcase>
+  <testcase time='0.649605' file="test/system/account_test.rb" name="test_cancel_account" assertions='1'>
+  </testcase>
+  <testcase time='1.054374' file="test/system/account_test.rb" name="test_update_account:_fail_because_email_and_name_are_not_filled" assertions='2'>
+  </testcase>
+  <testcase time='0.864637' file="test/system/account_test.rb" name="test_sign_in" assertions='1'>
+  </testcase>
+  <testcase time='1.494834' file="test/system/account_test.rb" name="test_update_account:_succeed" assertions='1'>
+  </testcase>
+  <testcase time='0.877521' file="test/system/account_test.rb" name="test_sign_up:_fail_because_email,_name_and_password_are_not_filled" assertions='3'>
+  </testcase>
+  <testcase time='0.365946' file="test/system/account_test.rb" name="test_sign_up:_succeed" assertions='0'>
+    <error type='EOFError' message="end of file reached">test/system/account_test.rb:10:in `block (2 levels) in &lt;class:AccountTest&gt;&#39;
+test/system/account_test.rb:8:in `block in &lt;class:AccountTest&gt;&#39;
+    </error>
+  </testcase>
+  <testcase time='0.653481' file="test/system/account_test.rb" name="test_update_account:_fail_because_password_is_not_same_as_password_confirmation" assertions='1'>
+  </testcase>
+  <testcase time='1.137160' file="test/system/account_test.rb" name="test_sign_up:_fail_because_password_is_not_same_as_password_confirmation" assertions='1'>
+  </testcase>
+</testsuite>

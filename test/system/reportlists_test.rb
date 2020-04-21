@@ -27,8 +27,8 @@ class ReportlistsTest < ApplicationSystemTestCase
       assert_text report.date
     end
     within("table") do
-      assert_no_text "削除"
-      assert_no_text "編集"
+      assert_no_text I18n.t("operations.destroy")
+      assert_no_text I18n.t("operations.edit", resource: "")
     end
   end
 end

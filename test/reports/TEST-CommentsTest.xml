@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='4.166022' skipped='0' failures='0' errors='0' name="CommentsTest" assertions='17' tests='7' timestamp="2020-04-17T22:41:39+09:00">
+  <testcase time='0.650996' file="test/system/comments_test.rb" name="test_create_comment_to_reports" assertions='1'>
+  </testcase>
+  <testcase time='0.512234' file="test/system/comments_test.rb" name="test_destroy_comment_on_reports" assertions='1'>
+  </testcase>
+  <testcase time='0.542074' file="test/system/comments_test.rb" name="test_destroy_commnet_on_books" assertions='1'>
+  </testcase>
+  <testcase time='0.563426' file="test/system/comments_test.rb" name="test_list_comment_on_reports" assertions='6'>
+  </testcase>
+  <testcase time='0.522075' file="test/system/comments_test.rb" name="test_list_comments_on_books" assertions='6'>
+  </testcase>
+  <testcase time='0.700859' file="test/system/comments_test.rb" name="test_create_comment_to_books" assertions='1'>
+  </testcase>
+  <testcase time='0.674357' file="test/system/comments_test.rb" name="test_update_comment" assertions='1'>
+  </testcase>
+</testsuite>
